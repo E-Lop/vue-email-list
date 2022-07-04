@@ -22,6 +22,11 @@ var app = new Vue({
     emailArray: [],
   },
   methods: {
+    getTenEmails() {
+      while (this.emailArray.length < 11) {
+        this.getRandomEmailFromApi();
+      }
+    },
     getRandomEmailFromApi() {
       axios
         .get('https://flynn.boolean.careers/exercises/api/random/mail')
@@ -32,6 +37,6 @@ var app = new Vue({
     },
   },
   mounted() {
-    this.getRandomEmailFromApi();
+    this.getTenEmails();
   },
 });
